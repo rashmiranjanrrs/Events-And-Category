@@ -48,7 +48,7 @@ class EventsController extends Controller
      */
     public function show($id)
     {
-        //only one author with id
+        //only one event with id
         $event = Event::find($id);
         if(!$event) {
             return response()->json(['status'=> false, 'message'=>'invalid data'],200);
@@ -57,13 +57,13 @@ class EventsController extends Controller
         
         $response = new EventsResource($event);
         return response()->json(['status' => true,'message'=>'succsess' ,'data' => $response], 200);
-        //return one author
+        //return one event
 
     }
 
     public function showcategory($id)
     {
-        //only one author with id
+        //only one category and events related to category with id
         $category = EventCategory::find($id);
         if(!$category) {
             return response()->json(['status'=> false, 'message'=>'invalid data'],200);
@@ -72,7 +72,7 @@ class EventsController extends Controller
         
         $response = new CategoryEventsResource($category);
         return response()->json(['status' => true,'message'=>'succsess' ,'data' => $response], 200);
-        //return one author
+        //return one category
 
     }
 
