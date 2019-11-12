@@ -14,14 +14,14 @@ class CategoryEventsResource extends JsonResource
      * @return array
      */
     public function toArray($request)
-    { 
+    {
 
-        
+
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'events' => $this->events
-            
+            'events' => $this->events // you can use the EventsResource here to return the events
+
         ];
     }
 }
